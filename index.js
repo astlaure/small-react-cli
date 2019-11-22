@@ -28,8 +28,6 @@ yargs  // TODO
 
 const argv = yargs.argv;
 
-console.log(argv);
-
 const { _: command } = argv;
 
 switch (command['0']) {
