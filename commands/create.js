@@ -1,9 +1,12 @@
 const fs = require('fs-extra');
+const os = require('os');
 const path = require('path');
 const { spawn } = require('child_process');
 const Spinner = require('clui').Spinner;
 
 const { depPackages, devDepPackages } = require('../packages/create');
+
+const npmCommand = os.platform() === 'win32' ? 'npm.cmd' : 'npm';
 
 const execute = ({ name }) => {
     const cwd = path.resolve(process.cwd(), name);
@@ -18,7 +21,7 @@ const execute = ({ name }) => {
 };
 
 const runInit = (cwd) => {
-    const init = spawn('npm', ['init', '-y'], {
+    const init = spawn(npmCommand, ['init', '-y'], {
         cwd: cwd
     });
 
@@ -35,7 +38,7 @@ const runInstall = (cwd) => {
     const spinner = new Spinner('Installing npm dependencies.');
     spinner.start();
 
-    const install = spawn('npm', depPackages, {
+    const install = spawn(npmCommand, depPackages, {
         cwd: cwd
     });
 
@@ -55,7 +58,7 @@ const runInstallDev = (cwd) => {
     const spinner = new Spinner('Installing npm dev dependencies.');
     spinner.start();
 
-    const installDev = spawn('npm', devDepPackages, {
+    const installDev = spawn(npmCommand, devDepPackages, {
         cwd: cwd
     });
 
