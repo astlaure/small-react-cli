@@ -1,0 +1,26 @@
+{
+  "name": "small-react-cli",
+  "version": "0.0.1",
+  "description": "Small React CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "s-react": "./index.js"
+  },
+  "keywords": [
+    "react",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clui": "^0.3.6",
+    "fs-extra": "^8.1.0",
+    "yargs": "^15.0.2"
+  },
+  "devDependencies": {
+    "@types/yargs": "^13.0.3"
+  }
+}
